@@ -1,6 +1,8 @@
     //Boolean 
     // Switch, mouseispressed
 
+    var On = false;
+
     function setup(){
 
         createCanvas(800,800);    
@@ -10,14 +12,17 @@
 
         background(0);
 
+            if (!On){
             swnt();
-                
-
-        if (mouseIsPressed && mouseX < 480 && mouseX > 280 && mouseY > 200 && mouseY < 580){
-            swp();
             }
+        else{
+            swp();
         }
-        function swnt(){
+        }
+
+
+
+        function swnt(){ //Switch not
 
             fill('gold');
             rect(280,200,200,400);
@@ -34,7 +39,7 @@
             ellipse(660,90,75,75);
             }
 
-        function swp(){
+        function swp(){ //Switch pressed
             background('skyblue');
 
             fill('gold');
@@ -48,3 +53,16 @@
             fill('yellow');
             ellipse(650,100,95,95);
             }
+
+        function mousePressed(){
+            
+            if ( mouseX < 480 && mouseX > 280 && mouseY > 200 && mouseY < 580){
+                
+                if (On){
+                    On = false;
+                }
+                else {
+                    On = true;
+                }
+            }
+        }
